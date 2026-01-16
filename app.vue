@@ -169,5 +169,12 @@ onMounted(() => {
 
 useHead({
   htmlAttrs: { lang: "ru" },
+  link: [
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo.png",
+    },
+  ],
 });
 </script>
