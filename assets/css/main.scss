@@ -1,0 +1,697 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Variables
+$font-primary: 'Manrope', sans-serif;
+$font-secondary: 'Nunito', 'SF Pro Rounded', -apple-system, sans-serif;
+
+$color-white: #FFFFFF;
+$color-black: #111111;
+$color-gray: #666666;
+$color-border: #E5E5E5;
+$color-blue: #5485E8;
+$color-blue-hover: #436bc4;
+$color-dark-bg: #0F0F10;
+$color-cta-bg: #06140F;
+$color-green-dark: #1A4D2E;
+$color-green-hover: #156E46;
+$color-card-green: #082E21;
+$color-footer-bg: #030C09;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-white text-black;
+    font-family: $font-primary;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1160px] mx-auto px-4 sm:px-6;
+  }
+
+  .section-title {
+    @apply text-[clamp(2rem,4vw,3rem)] mb-6 sm:mb-8;
+  }
+
+  // Buttons
+  .btn {
+    @apply inline-flex items-center justify-center font-semibold rounded-full cursor-pointer border border-transparent;
+    font-family: $font-secondary;
+    transition: all 0.2s ease;
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+
+    @media (min-width: 640px) {
+      padding: 1.25rem 2.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .btn-primary {
+    background-color: $color-blue;
+    @apply text-white;
+    &:hover {
+      background-color: $color-blue-hover;
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-white {
+    background-color: $color-white;
+    @apply text-[#333];
+    &:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-green {
+    background-color: $color-green-dark;
+    @apply text-white;
+    &:hover {
+      background-color: $color-green-hover;
+    }
+  }
+
+  .btn-header {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply text-white rounded-full;
+    font-family: $font-secondary;
+    transition: all 0.3s ease;
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+
+    @media (min-width: 640px) {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    &:hover {
+      background-color: $color-white;
+      @apply text-black;
+    }
+  }
+
+  .tag-pill {
+    @apply inline-block px-3 py-2 border rounded-full text-xs sm:text-sm mb-4 sm:mb-8;
+    border-color: $color-border;
+    color: $color-gray;
+    font-family: $font-secondary;
+    padding: 0.5rem 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .tag-pill-dark {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .text-white-70 {
+    @apply text-white/70;
+  }
+
+  // Navbar
+  .navbar {
+    @apply fixed top-0 w-full bg-transparent z-[1000] border-0;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+
+    @media (min-width: 768px) {
+      padding: 1.5rem 0;
+    }
+
+    &.scrolled {
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.75rem 0;
+
+      @media (min-width: 768px) {
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  .nav-pill {
+    @apply items-center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: 0.3s;
+    display: none;
+
+    @media (min-width: 769px) {
+      display: flex;
+      gap: 1.25rem;
+      padding: 0.625rem 1.875rem;
+    }
+
+    @media (min-width: 1024px) {
+      gap: 1.875rem;
+      padding: 0.625rem 2rem;
+    }
+
+    a {
+      @apply text-white font-medium opacity-90;
+      font-family: $font-secondary;
+      font-size: 0.75rem;
+
+      @media (min-width: 1024px) {
+        font-size: 0.875rem;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .burger-btn {
+    @apply flex-col justify-between bg-transparent border-0 cursor-pointer z-[1002] p-0;
+    display: flex;
+    width: 1.5rem;
+    height: 1.125rem;
+
+    @media (min-width: 769px) {
+      display: none;
+    }
+
+    .burger-line {
+      @apply w-full h-0.5 bg-white rounded;
+      transition: 0.3s;
+    }
+  }
+
+  // Hero
+  .hero {
+    @apply relative w-full flex items-center justify-center text-center;
+    min-height: 100vh;
+    height: auto;
+    padding-top: 5rem;
+
+    @media (min-width: 768px) {
+      height: 100vh;
+      padding-top: 0;
+    }
+
+    background-image: url('https://stately-travesseiro-8aedf9.netlify.app/assets/images/hero-mountains.png');
+    background-size: cover;
+    background-position: center;
+    transition: background 0.3s;
+
+    &-overlay {
+      @apply absolute top-0 left-0 w-full h-full z-[1];
+      background-color: rgba(0, 0, 0, 0.3);
+      min-height: 100vh;
+    }
+
+    &-content {
+      @apply relative z-[2] flex flex-col items-center;
+      max-width: 100%;
+      padding: 0 1rem;
+
+      @media (min-width: 640px) {
+        max-width: 600px;
+      }
+
+      @media (min-width: 768px) {
+        max-width: 800px;
+        padding: 0 1.25rem;
+      }
+    }
+
+    &-title {
+      @apply font-extrabold text-white mb-4 sm:mb-6;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-size: clamp(2rem, 8vw, 3.75rem);
+
+      @media (min-width: 640px) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      @apply mx-auto;
+      line-height: 1.6;
+      font-size: 0.9375rem;
+      max-width: 100%;
+      margin-bottom: 2rem;
+
+      @media (min-width: 640px) {
+        font-size: 1rem;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+      }
+
+      @media (min-width: 768px) {
+        max-width: 540px;
+        margin-bottom: 3rem;
+      }
+    }
+
+    &-buttons {
+      @apply flex justify-center;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 20rem;
+
+      @media (min-width: 640px) {
+        max-width: 22rem;
+        gap: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        width: auto;
+        max-width: none;
+        gap: 1rem;
+      }
+    }
+  }
+
+  // Services
+  .services-dark {
+    background-color: $color-dark-bg;
+    @apply text-white relative overflow-hidden;
+    padding: 4rem 0;
+
+    @media (min-width: 768px) {
+      padding: 5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 7.5rem 0;
+    }
+
+    &::before {
+      content: '';
+      @apply absolute z-0;
+      top: -20%;
+      left: -10%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(84, 133, 232, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    }
+  }
+
+  .services-header {
+    @apply mb-8 sm:mb-12 relative z-[1];
+  }
+
+  .services-grid {
+    @apply grid gap-4 sm:gap-6 relative z-[1];
+    grid-template-columns: 1fr;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply rounded-2xl flex flex-col items-start;
+    padding: 1.5rem;
+    transition: 0.3s ease;
+
+    @media (min-width: 640px) {
+      padding: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      padding: 2.5rem;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-5px);
+    }
+  }
+
+  .card-num {
+    background-color: $color-white;
+    @apply text-black rounded-full flex items-center justify-center font-bold;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      width: 3rem;
+      height: 3rem;
+      font-size: 0.9375rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .card-title {
+    @apply font-bold text-white;
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .card-desc {
+    @apply leading-[1.6] text-white/70;
+    font-size: 0.875rem;
+
+    @media (min-width: 768px) {
+      font-size: 0.875rem;
+    }
+  }
+
+  // FAQ
+  .accordion-item {
+    background-color: #F9F9F9;
+    @apply rounded-2xl overflow-hidden;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: #F0F0F0;
+    }
+
+    &.active {
+      .accordion-icon {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .accordion-header {
+    @apply w-full text-left bg-none border-0 font-semibold cursor-pointer flex justify-between items-center text-black;
+    font-family: $font-primary;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+
+    @media (min-width: 640px) {
+      padding: 1.25rem 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    @media (min-width: 768px) {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  .accordion-icon {
+    @apply font-light;
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+
+    @media (min-width: 640px) {
+      font-size: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  // CTA
+  .cta-dark {
+    @apply text-white;
+    background: $color-cta-bg;
+    background: radial-gradient(circle at center top, #0B241E 0%, #030C09 100%);
+    padding: 4rem 0;
+
+    @media (min-width: 768px) {
+      padding: 5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 7.5rem 0;
+    }
+  }
+
+  .cta-content-grid {
+    @apply grid items-stretch;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    @media (min-width: 768px) {
+      padding: 2rem;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 3rem;
+      gap: 4rem;
+      border-radius: 1.125rem;
+    }
+  }
+
+  .form-group-dark {
+    @apply flex flex-col;
+    gap: 0.5rem;
+
+    label {
+      @apply text-white/60;
+      font-family: $font-secondary;
+      font-size: 0.875rem;
+    }
+
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      @apply text-white rounded-none;
+      transition: 0.3s;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+
+      @media (min-width: 640px) {
+        padding: 0.75rem 0;
+        font-size: 1.125rem;
+      }
+
+      &:focus {
+        @apply outline-none;
+        border-bottom-color: $color-white;
+      }
+    }
+  }
+
+  .cta-brand-card {
+    background-color: $color-card-green;
+    @apply rounded-2xl flex flex-col justify-center items-center relative overflow-hidden;
+    padding: 2rem;
+
+    @media (min-width: 768px) {
+      padding: 2.5rem;
+      min-height: 20rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 3rem;
+    }
+  }
+
+  // Footer
+  .footer-dark {
+    background-color: $color-footer-bg;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    @apply py-6 text-white;
+
+    @media (min-width: 768px) {
+      padding: 2rem 0;
+    }
+  }
+
+  .footer-content {
+    @apply flex justify-between items-center;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  .footer-links {
+    @apply flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      gap: 1.5rem;
+    }
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      @apply text-sm lowercase;
+      transition: 0.2s;
+      font-size: 0.875rem;
+
+      @media (min-width: 640px) {
+        font-size: 0.875rem;
+      }
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  // Mobile Menu
+  .mobile-menu {
+    @apply fixed top-0 left-0 w-full z-[1001] flex flex-col items-center justify-center -translate-y-full;
+    background-color: $color-dark-bg;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100vh;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+      gap: 2rem;
+    }
+
+    &.active {
+      @apply translate-y-0;
+    }
+  }
+
+  .mobile-nav-link {
+    @apply text-white font-semibold uppercase;
+    font-size: 1.25rem;
+
+    @media (min-width: 640px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Metrics Strip (About Section)
+  .metrics-strip {
+    @apply flex justify-between items-center;
+    border: 1px solid $color-border;
+    border-radius: 1rem;
+    padding: 1.5rem 0;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+      padding: 2rem 1rem;
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      max-width: 1000px;
+      padding: 2rem 0;
+      gap: 0;
+    }
+  }
+
+  .metric-item {
+    @apply text-center;
+    flex: 1;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (min-width: 768px) {
+      padding: 0 1rem;
+    }
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 2.5rem;
+    background-color: $color-border;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      height: 4rem;
+    }
+  }
+
+  .metric-label {
+    font-size: 0.875rem;
+    color: $color-gray;
+
+    @media (min-width: 640px) {
+      font-size: 0.9375rem;
+    }
+  }
+
+  .metric-val {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-black;
+    line-height: 1;
+
+    @media (min-width: 640px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+// Additional responsive utilities
+@media (max-width: 640px) {
+  @layer components {
+    .section-title {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  @layer components {
+    // Tablet specific styles
+    .hero-content {
+      padding: 0 2rem;
+    }
+  }
+}
