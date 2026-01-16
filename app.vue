@@ -46,7 +46,7 @@
           <div class="mt-12 sm:mt-16 flex justify-center w-full">
             <img
               src="https://stately-travesseiro-8aedf9.netlify.app/assets/images/clients-grid.png"
-              alt="Our Clients"
+              alt="Наши клиенты - Vezra Studio работает с компаниями по всему миру"
               class="max-w-full h-auto"
             />
           </div>
@@ -215,8 +215,7 @@ useHead({
     },
     {
       property: "og:image",
-      content:
-        "https://stately-travesseiro-8aedf9.netlify.app/assets/images/og-image.jpg",
+      content: "https://vezra-studio.netlify.app/images/og-image.jpg",
     },
     { property: "og:site_name", content: "Vezra Studio" },
     { property: "og:locale", content: "ru_RU" },
@@ -235,8 +234,7 @@ useHead({
     },
     {
       name: "twitter:image",
-      content:
-        "https://stately-travesseiro-8aedf9.netlify.app/assets/images/og-image.jpg",
+      content: "https://vezra-studio.netlify.app/images/og-image.jpg",
     },
 
     // Additional SEO
@@ -246,7 +244,7 @@ useHead({
     {
       rel: "icon",
       type: "image/png",
-      href: "https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo.png",
+      href: "/images/logo-full.png",
     },
     { rel: "canonical", href: "https://vezra-studio.netlify.app/" },
   ],
@@ -258,7 +256,7 @@ useHead({
         "@type": "Organization",
         name: "Vezra Studio",
         url: "https://vezra-studio.netlify.app/",
-        logo: "https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo.png",
+        logo: "https://vezra-studio.netlify.app/images/logo-full.png",
         description:
           "Vezra Studio — профессиональная дизайн-студия полного цикла. Создаём дизайн, который формирует впечатление о бренде и помогает бизнесу расти.",
         address: {

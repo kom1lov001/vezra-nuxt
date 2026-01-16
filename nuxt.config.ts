@@ -11,7 +11,11 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/sitemap"],
+
+  sitemap: {
+    siteUrl: "https://vezra-studio.netlify.app",
+  },
 
   app: {
     head: {
