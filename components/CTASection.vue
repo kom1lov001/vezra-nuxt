@@ -70,8 +70,18 @@
               class="btn btn-green w-full py-4 md:py-4.5 mt-4"
               :disabled="isSubmitting"
             >
-              {{ isSubmitting ? "Отправлено!" : "Начать проект" }}
+              {{ isSubmitting ? "Отправка..." : "Начать проект" }}
             </button>
+
+            <!-- Success Message -->
+            <p v-if="success" class="text-green-400 text-sm mt-3">
+              ✅ Спасибо! Мы свяжемся с вами в ближайшее время.
+            </p>
+
+            <!-- Error Message -->
+            <p v-if="error" class="text-red-400 text-sm mt-3">
+              ❌ Что-то пошло не так. Попробуйте еще раз.
+            </p>
           </form>
         </div>
 
@@ -104,8 +114,11 @@
 <script setup lang="ts">
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import emailjs from 'emailjs-com'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const config = useRuntimeConfig()
 
 const form = ref({
   firstName: "",
@@ -115,19 +128,49 @@ const form = ref({
 })
 
 const isSubmitting = ref(false)
+const success = ref(false)
+const error = ref(false)
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   isSubmitting.value = true
-  // Simulate form submission
-  setTimeout(() => {
-    alert("Спасибо! Мы свяжемся с вами.")
+  success.value = false
+  error.value = false
+
+  const payload = {
+    name: `${form.value.firstName} ${form.value.lastName}`,
+    email: form.value.phone,
+    message: form.value.serviceType,
+    time: new Date().toLocaleString('ru-RU')
+  }
+
+  try {
+    await emailjs.send(
+      config.public.emailService,
+      config.public.emailTemplate,
+      payload,
+      config.public.emailKey
+    )
+
+    success.value = true
     form.value = {
       firstName: "",
       lastName: "",
       serviceType: "",
       phone: "",
     }
+
+    setTimeout(() => {
+      success.value = false
+    }, 5000)
+
+  } catch (err) {
+    console.error('EmailJS error:', err)
+    error.value = true
+    setTimeout(() => {
+      error.value = false
+    }, 5000)
+  } finally {
     isSubmitting.value = false
-  }, 1500)
+  }
 }
 </script>

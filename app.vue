@@ -152,6 +152,22 @@ const animateCounter = (
 onMounted(() => {
   if (!import.meta.client) return;
 
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLElement)
+        .getAttribute("href")
+        ?.slice(1);
+      if (targetId) {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  });
+
   const runAnimations = () => {
     animateCounter(metric1.value, 5, 2);
     animateCounter(metric2.value, 20, 2);
@@ -169,11 +185,94 @@ onMounted(() => {
 
 useHead({
   htmlAttrs: { lang: "ru" },
+  title:
+    "Vezra Studio — Создаём дизайн, который работает | Дизайн-студия полного цикла",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Vezra Studio — профессиональная дизайн-студия полного цикла. Создаём дизайн, который формирует впечатление о бренде и помогает бизнесу расти. Услуги: брендинг, веб-дизайн, UI/UX, графический дизайн.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Vezra Studio, дизайн студия, веб дизайн, UI UX дизайн, брендинг, графический дизайн, дизайн агентство, Ташкент, Узбекистан",
+    },
+    { name: "author", content: "Vezra Studio" },
+    { name: "robots", content: "index, follow" },
+
+    // Open Graph / Facebook
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://vezra-studio.netlify.app/" },
+    {
+      property: "og:title",
+      content: "Vezra Studio — Создаём дизайн, который работает",
+    },
+    {
+      property: "og:description",
+      content:
+        "Мы — студия полного цикла, предоставляющая услуги в области стратегии, дизайна и креатива. Помогаем брендам расти быстрее.",
+    },
+    {
+      property: "og:image",
+      content:
+        "https://stately-travesseiro-8aedf9.netlify.app/assets/images/og-image.jpg",
+    },
+    { property: "og:site_name", content: "Vezra Studio" },
+    { property: "og:locale", content: "ru_RU" },
+
+    // Twitter
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:url", content: "https://vezra-studio.netlify.app/" },
+    {
+      name: "twitter:title",
+      content: "Vezra Studio — Создаём дизайн, который работает",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Мы — студия полного цикла, предоставляющая услуги в области стратегии, дизайна и креатива.",
+    },
+    {
+      name: "twitter:image",
+      content:
+        "https://stately-travesseiro-8aedf9.netlify.app/assets/images/og-image.jpg",
+    },
+
+    // Additional SEO
+    { name: "theme-color", content: "#000000" },
+  ],
   link: [
     {
       rel: "icon",
       type: "image/png",
       href: "https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo.png",
+    },
+    { rel: "canonical", href: "https://vezra-studio.netlify.app/" },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Vezra Studio",
+        url: "https://vezra-studio.netlify.app/",
+        logo: "https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo.png",
+        description:
+          "Vezra Studio — профессиональная дизайн-студия полного цикла. Создаём дизайн, который формирует впечатление о бренде и помогает бизнесу расти.",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Tashkent",
+          addressCountry: "UZ",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          availableLanguage: "Russian",
+        },
+        sameAs: ["https://instagram.com/vezrastudio"],
+      }),
     },
   ],
 });
