@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "about": "Biz haqimizda",
+    "services": "Xizmatlar",
+    "portfolio": "Portfolio",
+    "contact": "Aloqa",
+    "becomeClient": "Mijoz bo'lish"
+  },
+  "hero": {
+    "title": "VEZRA - ISHLAYDIGAN DIZAYN YARATAMIZ",
+    "subtitle": "Biz — strategiya, dizayn va kreativ sohasida to'liq sikl xizmatlarini ko'rsatadigan studiyamiz. Boshlang'ich va allaqachon o'z o'rnini topgan brendlarga tezroq o'sishga yordam beramiz.",
+    "discussProject": "Loyihani muhokama qilish",
+    "ourCases": "Bizning loyihalar"
+  },
+  "about": {
+    "tag": "Vezra Studio haqida",
+    "title": "SIZGA NATIJA BERAMIZ, SIZ O'SISHGA ERISHASIZ",
+    "description": "Vezra — biz brend taassurotini shakllantiradigan va biznesning o'sishiga yordam beradigan dizayn yaratamiz. Bizning yondashuvimiz texnologiyalik, minimalizm va e'tiborga asoslangan.",
+    "metrics": {
+      "clients": "Turli mamlakatlardagi mijozlar",
+      "projects": "Yil muvaffaqiyatli loyihalari",
+      "referrals": "Tavsiya bilan kelgan mijozlar",
+      "reviews": "Mijozlar sharhlari"
+    }
+  },
+  "services": {
+    "tag": "Xizmatlarimiz",
+    "title": "BIZNESINGIZNING DIZAYN VAZIFALARINI HAL QILAMIZ",
+    "items": {
+      "branding": {
+        "title": "Brend identifikatsiyasi",
+        "description": "Brendning xarakterini va vizual farqini shakllantiruvchi identifikatsiya. Butun tizim yaratamiz."
+      },
+      "uiux": {
+        "title": "UI / UX dizayn",
+        "description": "Qulaylik va mantiqiy o'zaro ta'sirga yo'naltirilgan UI/UX dizayn. Interfeyslar yaratamiz."
+      },
+      "logo": {
+        "title": "Logotype ishlab chiqish",
+        "description": "Brendning mohiyati va xarakterini aks ettiruvchi logotip. Noyob belgilar ishlab chiqamiz."
+      },
+      "web": {
+        "title": "Biznes uchun saytlar",
+        "description": "Estetika va funksionallikni birlashtirgan biznes saytlari. Digital yechimlarni loyihalaymiz."
+      },
+      "packaging": {
+        "title": "Qadoqlash dizayni",
+        "description": "Mahsulotni ajratib turuvchi va brend qadriyatlarini yetkazuvchi qadoqlash. E'tiborni tortadi."
+      },
+      "ai": {
+        "title": "AI yechimlar",
+        "description": "Biznesni kuchaytiruvchi va ma'lumotlar salohiyatini ochuvchi AI yechimlar. Aqlli texnologiyalar."
+      }
+    }
+  },
+  "faq": {
+    "tag": "FAQ ?",
+    "title": "KO'P SO'RALADIGAN SAVOLLAR",
+    "description": "Jarayon, muddatlar va hamkorlik haqida tez-tez so'raladigan savollarga javoblar.",
+    "items": {
+      "q1": {
+        "question": "Ish qanday boshlanadi?",
+        "answer": "Biz biznesingiz, auditoriyangiz va raqiblaringiz tahlilidan boshlaymiz, strategiya yaratish uchun."
+      },
+      "q2": {
+        "question": "Loyihani qancha vaqt oladi?",
+        "answer": "Muddatlar murakkablikka bog'liq. Landing page 5-7 kun, korporativ sayt 14 kundan."
+      },
+      "q3": {
+        "question": "Oxirida nimani olaman?",
+        "answer": "Siz ishga tayarli mahsulot, dizayn fayllari va texnik hujjatlarni olasiz."
+      },
+      "q4": {
+        "question": "To'lov qanday amalga oshiriladi?",
+        "answer": "Biz ish boshlanishidan oldin 50% oldindan to'lov va yakuniy tasdiqlashdan keyin 50% bilan ishlaymiz."
+      },
+      "q5": {
+        "question": "Loyihadan keyin yordam bera olasizmi?",
+        "answer": "Ha, obuna yoki bir martalik vazifalar bo'yicha texnik yordam va loyihani rivojlantirishni taklif qilamiz."
+      }
+    }
+  },
+  "cta": {
+    "title": "BRENDINGIZNING KEYINGI DARAJASIGA TAYYORMISIZ",
+    "description": "Biz g'oyani kuchli vizual mahsulotga aylantirishga yordam beramiz. Biz bilan brendingiz foyda keltiradi.",
+    "formTitle": "Qisqa ariza — loyihaga birinchi qadam",
+    "formDescription": "Vazifani tushunib, siz bilan bog'lanish uchun bu yetarli.",
+    "firstName": "Ism",
+    "lastName": "Familiya",
+    "serviceType": "Xizmat turi",
+    "phone": "Telefon raqami",
+    "phonePlaceholder": "Raqam +998",
+    "submitting": "Yuborilmoqda...",
+    "submit": "Loyihani boshlash",
+    "success": "Rahmat! Tez orada siz bilan bog'lanamiz.",
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring.",
+    "brandText": "Biz brendlarni qayta ko'rib chiqamiz, yangi digital davr uchun vizual yechimlar yaratamiz."
+  },
+  "footer": {
+    "portfolio": "portfolio",
+    "about": "biz haqida",
+    "contacts": "aloqa"
+  },
+  "clients": {
+    "alt": "Mijozlarimiz - Vezra Studio dunyo bo'ylab kompaniyalar bilan ishlaydi"
+  }
+}

@@ -11,10 +11,18 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/sitemap"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
 
-  sitemap: {
-    siteUrl: "https://vezra-studio.netlify.app",
+  i18n: {
+    defaultLocale: "ru",
+    locales: [
+      { code: "ru", iso: "ru-RU", file: "ru.json", name: "Русский" },
+      { code: "uz", iso: "uz-UZ", file: "uz.json", name: "O'zbek" },
+      { code: "en", iso: "en-US", file: "en.json", name: "English" },
+    ],
+    langDir: "locales",
+    strategy: "no_prefix",
+    vueI18n: "./i18n.config.ts",
   },
 
   app: {

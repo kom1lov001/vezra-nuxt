@@ -2,65 +2,59 @@
   <section id="cta" class="cta-dark scroll-animate">
     <div class="container">
       <div class="text-center mb-12 md:mb-16">
-        <h2 class="section-title text-white">
-          ГОТОВЫ К СЛЕДУЮЩЕМУ УРОВНЮ<br />
-          ВАШЕГО БРЕНДА
+        <h2 class="section-title">
+          {{ $t('cta.title') }}
         </h2>
-        <p class="max-w-[700px] mx-auto text-center text-white/70 px-4">
-          Мы поможем превратить идею в сильный визуальный продукт. С нами ваш
-          бренд будет привести вам свою пользу.
+        <p class="max-w-[700px] mx-auto text-center text-black/70 px-4">
+          {{ $t('cta.description') }}
         </p>
       </div>
 
-      <div
-        class="cta-content-grid"
-      >
+      <div class="cta-content-grid">
         <!-- Form Column -->
         <div class="pr-0 md:pr-8">
           <h3 class="text-lg md:text-xl font-bold mb-2">
-            Короткая заявка — первый шаг к проекту
+            {{ $t('cta.formTitle') }}
           </h3>
-          <p
-            class="text-sm text-white/60 mb-6 md:mb-8 font-[family-name:var(--font-secondary)]"
-          >
-            Этого достаточно, чтобы мы поняли задачу и связались с вами.
+          <p class="text-sm text-black/60 mb-6 md:mb-8 font-[family-name:var(--font-secondary)]">
+            {{ $t('cta.formDescription') }}
           </p>
 
           <form @submit.prevent="handleSubmit" class="flex flex-col gap-4 md:gap-6">
             <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
               <div class="form-group-dark flex-1">
-                <label>Имя</label>
+                <label>{{ $t('cta.firstName') }}</label>
                 <input
                   type="text"
-                  placeholder="Имя"
+                  :placeholder="$t('cta.firstName')"
                   required
                   v-model="form.firstName"
                 />
               </div>
               <div class="form-group-dark flex-1">
-                <label>Фамилия</label>
+                <label>{{ $t('cta.lastName') }}</label>
                 <input
                   type="text"
-                  placeholder="Фамилия"
+                  :placeholder="$t('cta.lastName')"
                   required
                   v-model="form.lastName"
                 />
               </div>
             </div>
             <div class="form-group-dark">
-              <label>Тип услуги</label>
+              <label>{{ $t('cta.serviceType') }}</label>
               <input
                 type="text"
-                placeholder="Тип услуги"
+                :placeholder="$t('cta.serviceType')"
                 required
                 v-model="form.serviceType"
               />
             </div>
             <div class="form-group-dark">
-              <label>Номер телефона</label>
+              <label>{{ $t('cta.phone') }}</label>
               <input
                 type="tel"
-                placeholder="Номер +998"
+                :placeholder="$t('cta.phonePlaceholder')"
                 required
                 v-model="form.phone"
               />
@@ -70,38 +64,33 @@
               class="btn btn-green w-full py-4 md:py-4.5 mt-4"
               :disabled="isSubmitting"
             >
-              {{ isSubmitting ? "Отправка..." : "Начать проект" }}
+              {{ isSubmitting ? $t('cta.submitting') : $t('cta.submit') }}
             </button>
 
             <!-- Success Message -->
-            <p v-if="success" class="text-green-400 text-sm mt-3">
-              ✅ Спасибо! Мы свяжемся с вами в ближайшее время.
+            <p v-if="success" class="text-green-600 text-sm mt-3">
+              ✅ {{ $t('cta.success') }}
             </p>
 
             <!-- Error Message -->
-            <p v-if="error" class="text-red-400 text-sm mt-3">
-              ❌ Что-то пошло не так. Попробуйте еще раз.
+            <p v-if="error" class="text-red-500 text-sm mt-3">
+              ❌ {{ $t('cta.error') }}
             </p>
           </form>
         </div>
 
         <!-- Brand Card -->
-        <div
-          class="cta-brand-card"
-        >
+        <div class="cta-brand-card">
           <div class="flex items-center justify-center mb-auto mt-auto">
             <img
-              src="https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo-full.png"
+              src="/images/logo-full.png"
               alt="VEZRA STUDIO"
               class="brand-logo"
             >
           </div>
-          <div
-            class="w-full border-t border-white/10 pt-4 md:pt-6 text-sm text-white/70 leading-[1.5]"
-          >
+          <div class="w-full border-t border-white/10 pt-4 md:pt-6 text-sm text-white/70 leading-[1.5]">
             <p>
-              Мы переосмысливаем бренды, создавая визуальные решения для новой
-              digital-эры.
+              {{ $t('cta.brandText') }}
             </p>
             <span class="block mt-2 font-bold text-white">Vezra Studio</span>
           </div>
@@ -118,6 +107,8 @@ import emailjs from 'emailjs-com'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const { $i18n } = useNuxtApp()
+const t = (key: string) => $i18n.t(key)
 const config = useRuntimeConfig()
 
 const form = ref({
@@ -174,3 +165,11 @@ const handleSubmit = async () => {
   }
 }
 </script>
+
+<style scoped>
+.brand-logo {
+  height: 2.5rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+</style>

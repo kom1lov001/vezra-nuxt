@@ -2,10 +2,10 @@
   <section id="faq" class="py-16 sm:py-20 md:py-24 lg:py-32">
     <div class="container">
       <div class="text-center mb-8 md:mb-12 px-4 scroll-animate">
-        <span class="tag-pill">FAQS ?</span>
-        <h2 class="section-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+        <span class="tag-pill">{{ $t('faq.tag') }}</span>
+        <h2 class="section-title">{{ $t('faq.title') }}</h2>
         <p class="max-w-[700px] mx-auto text-center leading-[1.6]">
-          Ответы на частые вопросы о процессе, сроках и сотрудничестве.
+          {{ $t('faq.description') }}
         </p>
       </div>
 
@@ -28,31 +28,34 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const { $i18n } = useNuxtApp()
+const t = (key: string) => $i18n.t(key)
+
 interface FAQ {
   question: string
   answer: string
 }
 
-const faqs: FAQ[] = [
+const faqs = computed<FAQ[]>(() => [
   {
-    question: 'С чего начинается работа?',
-    answer: 'Мы начинаем с анализа вашего бизнеса, аудитории и конкурентов, чтобы создать стратегию.'
+    question: t('faq.items.q1.question'),
+    answer: t('faq.items.q1.answer')
   },
   {
-    question: 'Сколько времени занимает проект?',
-    answer: 'Сроки зависят от сложности. Лендинг заниает от 5-7 дней, корпоративный сайт от 14 дней.'
+    question: t('faq.items.q2.question'),
+    answer: t('faq.items.q2.answer')
   },
   {
-    question: 'Что я получу в итоге?',
-    answer: 'Вы получаете полностью готовый к запуску продукт, файлы дизайна и техническую документацию.'
+    question: t('faq.items.q3.question'),
+    answer: t('faq.items.q3.answer')
   },
   {
-    question: 'Как происходит оплата?',
-    answer: 'Мы работаем по предоплате 50% перед началом работ и 50% после утверждения финала.'
+    question: t('faq.items.q4.question'),
+    answer: t('faq.items.q4.answer')
   },
   {
-    question: 'Можете ли помочь после завершения проекта?',
-    answer: 'Да, мы предлагаем техническую поддержку и развитие проекта по подписке или разовым задачам.'
+    question: t('faq.items.q5.question'),
+    answer: t('faq.items.q5.answer')
   }
-]
+])
 </script>

@@ -2,19 +2,19 @@
   <nav class="navbar" :class="{ scrolled: isScrolled, 'menu-open': isMobileMenuOpen }">
     <div class="container navbar-inner">
       <a href="#" class="logo">
-        <img src="https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo-full.png" alt="VEZRA STUDIO" class="logo-img">
+        <img src="/images/logo-full.png" alt="VEZRA STUDIO" class="logo-img">
       </a>
 
       <!-- Desktop Menu -->
       <div class="nav-pill">
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#cases">Портфолио</a>
-        <a href="#cta">Контакт</a>
+        <a href="#about">{{ $t('nav.about') }}</a>
+        <a href="#services">{{ $t('nav.services') }}</a>
+        <a href="#cases">{{ $t('nav.portfolio') }}</a>
+        <a href="#cta">{{ $t('nav.contact') }}</a>
       </div>
 
       <a href="#cta" class="btn-header">
-        Стать клиентом
+        {{ $t('nav.becomeClient') }}
       </a>
 
       <!-- Mobile Burger -->
@@ -27,6 +27,19 @@
         <span class="burger-line" :class="{ 'opacity-0': isMobileMenuOpen }"></span>
         <span class="burger-line" :class="{ '-rotate-45 -translate-y-1.5': isMobileMenuOpen }"></span>
       </button>
+
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button
+          v-for="locale in locales"
+          :key="locale.code"
+          @click="switchLocale(locale.code as 'ru' | 'uz' | 'en')"
+          :class="{ active: $i18n.locale.value === locale.code }"
+          class="lang-btn"
+        >
+          {{ locale.code.toUpperCase() }}
+        </button>
+      </div>
     </div>
   </nav>
 </template>
@@ -34,6 +47,18 @@
 <script setup lang="ts">
 const isScrolled = ref(false)
 const isMobileMenuOpen = useState('mobileMenuOpen', () => false)
+
+const { $i18n } = useNuxtApp()
+
+const locales = [
+  { code: 'ru', name: 'Русский' },
+  { code: 'uz', name: 'O\'zbek' },
+  { code: 'en', name: 'English' },
+]
+
+const switchLocale = (code: 'ru' | 'uz' | 'en') => {
+  $i18n.locale.value = code
+}
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -81,11 +106,11 @@ onMounted(() => {
 
 .nav-pill {
   @apply items-center;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   display: none;
 
@@ -101,7 +126,7 @@ onMounted(() => {
   }
 
   a {
-    @apply text-white font-medium opacity-90;
+    @apply text-black font-medium opacity-80;
     font-family: 'Nunito', sans-serif;
     font-size: 0.75rem;
 
@@ -116,10 +141,9 @@ onMounted(() => {
 }
 
 .btn-header {
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  @apply text-white rounded-full;
+  background-color: #5485E8;
+  color: white;
+  border-radius: 9999px;
   font-family: 'Nunito', sans-serif;
   transition: all 0.3s ease;
   padding: 0.625rem 1rem;
@@ -131,8 +155,8 @@ onMounted(() => {
   }
 
   &:hover {
-    background-color: #fff;
-    @apply text-black;
+    background-color: #436bc4;
+    transform: translateY(-2px);
   }
 }
 
@@ -148,7 +172,35 @@ onMounted(() => {
 }
 
 .burger-line {
-  @apply w-full h-0.5 bg-white rounded;
+  @apply w-full h-0.5 bg-black rounded;
   transition: 0.3s;
+}
+
+.lang-switcher {
+  @apply flex items-center gap-1;
+  margin-left: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.6);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    background-color: #5485E8;
+    color: white;
+  }
 }
 </style>

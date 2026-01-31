@@ -10,19 +10,44 @@
       </button>
     </div>
 
+    <!-- Language Switcher (Mobile) -->
+    <div class="mobile-lang-switcher">
+      <button
+        v-for="locale in locales"
+        :key="locale.code"
+        @click="switchLocale(locale.code as 'ru' | 'uz' | 'en')"
+        :class="{ active: $i18n.locale.value === locale.code }"
+        class="lang-btn"
+      >
+        {{ locale.name }}
+      </button>
+    </div>
+
     <!-- Menu Items with GSAP animation -->
     <div class="mobile-menu-items" ref="menuItemsRef">
-      <a href="#about" class="mobile-nav-link" @click.prevent="handleLinkClick">О нас</a>
-      <a href="#services" class="mobile-nav-link" @click.prevent="handleLinkClick">Услуги</a>
-      <a href="#cases" class="mobile-nav-link" @click.prevent="handleLinkClick">Портфолио</a>
-      <a href="#cta" class="mobile-nav-link" @click.prevent="handleLinkClick">Контакт</a>
-      <a href="#cta" class="btn btn-primary mt-8 mobile-nav-link" @click.prevent="handleLinkClick">Стать клиентом</a>
+      <a href="#about" class="mobile-nav-link" @click.prevent="handleLinkClick">{{ $t('nav.about') }}</a>
+      <a href="#services" class="mobile-nav-link" @click.prevent="handleLinkClick">{{ $t('nav.services') }}</a>
+      <a href="#cases" class="mobile-nav-link" @click.prevent="handleLinkClick">{{ $t('nav.portfolio') }}</a>
+      <a href="#cta" class="mobile-nav-link" @click.prevent="handleLinkClick">{{ $t('nav.contact') }}</a>
+      <a href="#cta" class="btn btn-primary mt-8 mobile-nav-link" @click.prevent="handleLinkClick">{{ $t('nav.becomeClient') }}</a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { gsap } from 'gsap'
+
+const { $i18n } = useNuxtApp()
+
+const locales = [
+  { code: 'ru', name: 'Русский' },
+  { code: 'uz', name: 'O\'zbek' },
+  { code: 'en', name: 'English' },
+]
+
+const switchLocale = (code: string) => {
+  $i18n.locale.value = code
+}
 
 const isMobileMenuOpen = useState('mobileMenuOpen', () => false)
 const menuItemsRef = ref<HTMLElement | null>(null)
@@ -153,17 +178,17 @@ onUnmounted(() => {
 }
 
 .mobile-menu-logo {
-  color: white;
+  color: #000;
   font-weight: 700;
   font-family: 'Manrope', sans-serif;
   font-size: 1.125rem;
 }
 
 .mobile-menu-close {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 9999px;
-  color: white;
+  color: #000;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -173,8 +198,29 @@ onUnmounted(() => {
 }
 
 .mobile-menu-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
+}
+
+.mobile-lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 5rem;
+}
+
+.mobile-lang-switcher .lang-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.6);
+  transition: all 0.2s;
+}
+
+.mobile-lang-switcher .lang-btn.active {
+  background-color: #5485E8;
+  color: white;
 }
 
 .mobile-menu-items {

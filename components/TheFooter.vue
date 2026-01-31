@@ -3,15 +3,15 @@
     <div class="container footer-content">
       <div class="logo">
         <img
-          src="https://stately-travesseiro-8aedf9.netlify.app/assets/images/logo-full.png"
+          src="/images/logo-full.png"
           alt="VEZRA STUDIO"
           class="footer-logo"
         >
       </div>
       <div class="footer-links">
-        <a href="#cases">портфолио</a>
-        <a href="#about">о нас</a>
-        <a href="#contact">контакты</a>
+        <a href="#cases">{{ $t('footer.portfolio') }}</a>
+        <a href="#about">{{ $t('footer.about') }}</a>
+        <a href="#contact">{{ $t('footer.contacts') }}</a>
         <a href="mailto:boychiboev19@icloud.com" class="flex items-center">
           <svg
             width="18"
@@ -40,6 +40,5 @@
 .footer-logo {
   height: 1.5rem;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 </style>

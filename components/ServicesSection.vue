@@ -2,10 +2,9 @@
   <section id="services" class="services-dark">
     <div class="container">
       <div class="services-header mb-8 md:mb-12 relative z-[1] px-4 scroll-animate">
-        <span class="tag-pill border-white/20 text-white/80">Наши услуги</span>
-        <h2 class="section-title text-white">
-          РЕШАЕМ ДИЗАЙН-ЗАДАЧИ<br>
-          ВАШЕГО БИЗНЕСА
+        <span class="tag-pill tag-pill-dark">{{ $t('services.tag') }}</span>
+        <h2 class="section-title">
+          {{ $t('services.title') }}
         </h2>
       </div>
 
@@ -29,35 +28,38 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const { $i18n } = useNuxtApp()
+const t = (key: string) => $i18n.t(key)
+
 interface Service {
   title: string
   description: string
 }
 
-const services: Service[] = [
+const services = computed<Service[]>(() => [
   {
-    title: 'Бренд-айдентика',
-    description: 'Айдентика, формирующая характер бренда и его визуальное отличие. Создаём целостную систему.'
+    title: t('services.items.branding.title'),
+    description: t('services.items.branding.description')
   },
   {
-    title: 'Дизайн UI / UX',
-    description: 'UI/UX-дизайн, ориентированный на удобство и логику взаимодействия. Мы создаём интерфейсы.'
+    title: t('services.items.uiux.title'),
+    description: t('services.items.uiux.description')
   },
   {
-    title: 'Разработка логотипа',
-    description: 'Логотип, отражающий суть и характер бренда. Мы разрабатываем уникальные знаки.'
+    title: t('services.items.logo.title'),
+    description: t('services.items.logo.description')
   },
   {
-    title: 'Сайты для бизнеса',
-    description: 'Сайты для бизнеса, сочетающие эстетику и функциональность. Мы проектируем digital-решения.'
+    title: t('services.items.web.title'),
+    description: t('services.items.web.description')
   },
   {
-    title: 'Дизайн упаковки',
-    description: 'Упаковка, которая выделяет продукт и передаёт ценности бренда. Привлекает внимание.'
+    title: t('services.items.packaging.title'),
+    description: t('services.items.packaging.description')
   },
   {
-    title: 'AI-решения',
-    description: 'AI-решения, которые усиливают бизнес и раскрывают потенциал данных. Умные технологии.'
+    title: t('services.items.ai.title'),
+    description: t('services.items.ai.description')
   }
-]
+])
 </script>

@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "becomeClient": "Become a Client"
+  },
+  "hero": {
+    "title": "VEZRA - WE CREATE DESIGN THAT WORKS",
+    "subtitle": "We are a full-cycle studio providing strategy, design and creative services that help both emerging and established brands grow faster.",
+    "discussProject": "Discuss Project",
+    "ourCases": "Our Cases"
+  },
+  "about": {
+    "tag": "About Vezra Studio",
+    "title": "WE DELIVER RESULTS YOU GET GROWTH",
+    "description": "Vezra — we create design that shapes brand impression and helps business grow. Our approach is based on technology, minimalism and attention to detail.",
+    "metrics": {
+      "clients": "Clients in different countries",
+      "projects": "Successful projects per year",
+      "referrals": "Clients by referral",
+      "reviews": "Customer reviews"
+    }
+  },
+  "services": {
+    "tag": "Our Services",
+    "title": "SOLVING YOUR BUSINESS DESIGN CHALLENGES",
+    "items": {
+      "branding": {
+        "title": "Brand Identity",
+        "description": "Identity that shapes brand character and its visual distinction. We create cohesive systems."
+      },
+      "uiux": {
+        "title": "UI / UX Design",
+        "description": "UI/UX design focused on convenience and logic of interaction. We create interfaces."
+      },
+      "logo": {
+        "title": "Logo Development",
+        "description": "Logo that reflects the essence and character of the brand. We develop unique marks."
+      },
+      "web": {
+        "title": "Business Websites",
+        "description": "Business websites combining aesthetics and functionality. We design digital solutions."
+      },
+      "packaging": {
+        "title": "Packaging Design",
+        "description": "Packaging that highlights the product and conveys brand values. Attracts attention."
+      },
+      "ai": {
+        "title": "AI Solutions",
+        "description": "AI solutions that enhance business and unlock data potential. Smart technologies."
+      }
+    }
+  },
+  "faq": {
+    "tag": "FAQ ?",
+    "title": "FREQUENTLY ASKED QUESTIONS",
+    "description": "Answers to common questions about the process, timelines and collaboration.",
+    "items": {
+      "q1": {
+        "question": "How does the work begin?",
+        "answer": "We start with analysis of your business, audience and competitors to create a strategy."
+      },
+      "q2": {
+        "question": "How long does a project take?",
+        "answer": "Timelines depend on complexity. Landing page takes 5-7 days, corporate site from 14 days."
+      },
+      "q3": {
+        "question": "What will I get in the end?",
+        "answer": "You get a fully launch-ready product, design files and technical documentation."
+      },
+      "q4": {
+        "question": "How does payment work?",
+        "answer": "We work with 50% prepayment before starting work and 50% after final approval."
+      },
+      "q5": {
+        "question": "Can you help after project completion?",
+        "answer": "Yes, we offer technical support and project development on subscription or per-task basis."
+      }
+    }
+  },
+  "cta": {
+    "title": "READY FOR THE NEXT LEVEL OF YOUR BRAND",
+    "description": "We help turn ideas into strong visual products. With us your brand will work for your benefit.",
+    "formTitle": "Short application — first step to the project",
+    "formDescription": "This is enough for us to understand the task and contact you.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "serviceType": "Service Type",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Number +998",
+    "submitting": "Sending...",
+    "submit": "Start Project",
+    "success": "Thank you! We will contact you shortly.",
+    "error": "Something went wrong. Please try again.",
+    "brandText": "We rethink brands, creating visual solutions for the new digital era."
+  },
+  "footer": {
+    "portfolio": "portfolio",
+    "about": "about",
+    "contacts": "contacts"
+  },
+  "clients": {
+    "alt": "Our clients - Vezra Studio works with companies around the world"
+  }
+}
